@@ -2,9 +2,9 @@ package problemone;
 
 import java.util.Arrays;
 
-public class ArrayQueueImpl {
+public class ArrayQueueImplPointerMove {
 
-    private int[] arr = new int[10];
+    private int[] arr = new int[1];
     private int front = -1;
     private int rear = 0;
 
@@ -36,14 +36,11 @@ public class ArrayQueueImpl {
             return -1;
         }
         int removedElement = arr[front];
-        if (size() == 1) { // if only one element in queue then decrease front to -1 to show empty queue after removal
+        front = front + 1;
+        if(front > rear){
             front = -1;
             rear = 0;
-            arr = Arrays.copyOfRange(arr, 0, arr.length);
-            return removedElement;
         }
-        arr = Arrays.copyOfRange(arr, 1, arr.length); // make a new copy of the array with same length starting from position 1
-        rear--; // decrease rear so it points to the new value
         return removedElement;
     }
 
