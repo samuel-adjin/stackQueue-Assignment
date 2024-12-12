@@ -8,7 +8,7 @@ public class LinkedListStack {
 		Integer value;
 		Node next;
 	}
-
+	//Push data to stack
 	public void push(Integer x) {
 		if(x == null) return;
 		Node newNode = new Node();
@@ -61,14 +61,14 @@ public class LinkedListStack {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder("[");
 		Node current = header.next;
 		if (isEmpty()) return "No data to print";
 		while (current != null) {
 				sb.append(current.value).append(" --->");
 				current = current.next;
 			}
-			sb.append("null");
+			sb.append("null]");
 		return sb.toString();
 	}
 
