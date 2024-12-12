@@ -17,7 +17,11 @@ public class ProblemOne {
         System.out.println("Peek: " + queue.peek());
         System.out.println("Dequeue: " + queue.dequeue());
         queue.enqueue(16);
-        System.out.println("lSize: " + queue.size());
+        queue.enqueue(516);
+        System.out.println("Size: " + queue.size());
+        System.out.println("Peek: " + queue.peek());
+        System.out.println("Dequeue: " + queue.dequeue());
+        System.out.println("Size: " + queue.size());
         System.out.println("Peek: " + queue.peek());
     }
 }

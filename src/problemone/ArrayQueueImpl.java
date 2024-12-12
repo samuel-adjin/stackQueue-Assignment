@@ -40,10 +40,10 @@ public class ArrayQueueImpl {
             front = -1;
             rear = 0;
             arr = Arrays.copyOfRange(arr, 0, arr.length);
-            return removedElement;
+        }else{
+            arr = Arrays.copyOfRange(arr, 1, arr.length); // make a new copy of the array with same length starting from position 1
+            rear--; // decrease rear so it points to the new value
         }
-        arr = Arrays.copyOfRange(arr, 1, arr.length); // make a new copy of the array with same length starting from position 1
-        rear--; // decrease rear so it points to the new value
         return removedElement;
     }
 
