@@ -2,7 +2,6 @@ package problemone;
 
 public class ProblemOne {
     public static void main(String[] args) {
-//        ArrayQueueImplPointerMove queue = new ArrayQueueImplPointerMove();
         ArrayQueueImpl queue = new ArrayQueueImpl();
 
         System.out.println("Size: " + queue.size());
