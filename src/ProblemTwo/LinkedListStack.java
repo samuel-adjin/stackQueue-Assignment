@@ -29,7 +29,7 @@ public class LinkedListStack {
 	}
 
 	//Pop the data from stack
-	public  Integer pop(){
+	public Integer pop(){
 		if(isEmpty()) return null;
 		Node current = header.next;
 		while (current.next != null){
@@ -55,7 +55,7 @@ public class LinkedListStack {
 		return current.value;
 	}
 
-	public static boolean isEmpty(){
+	private static boolean isEmpty(){
 		return (header.next == null);
 	}
 
@@ -92,6 +92,7 @@ public class LinkedListStack {
 		System.out.println(st);
 		System.out.println("----------------------");
 		System.out.println("Peek: " + st.peek());
+		System.out.println("Pop: " + st.pop());
 		System.out.println("Pop: " + st.pop());
 		System.out.println("Data after peek and pop ...");
 		System.out.println(st);
