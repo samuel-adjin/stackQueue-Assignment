@@ -2,7 +2,7 @@ package problemone;
 
 import java.util.Arrays;
 
-public class ArrayQueueImpl {
+public class ArrayQueueImplAlt {
 
     private int[] arr = new int[10];
     private int front = -1;
@@ -22,12 +22,12 @@ public class ArrayQueueImpl {
         }
         if (isEmpty()) {
             front = 0;
-            rear = 0;
             arr[rear] = obj;
-        } else {
-            rear++;
-            arr[rear] = obj;
+            return;
         }
+        rear++;
+        arr[rear] = obj;
+
     }
 
     public int dequeue() {
@@ -36,10 +36,13 @@ public class ArrayQueueImpl {
             return -1;
         }
         int removedElement = arr[front];
-        front = front + 1;
-        if (front > rear) {
+        if (size() == 1) { // if only one element in queue then decrease front to -1 to show empty queue after removal
             front = -1;
             rear = 0;
+            arr = Arrays.copyOfRange(arr, 0, arr.length);
+        }else{
+            arr = Arrays.copyOfRange(arr, 1, arr.length); // make a new copy of the array with same length starting from position 1
+            rear--; // decrease rear so it points to the new value
         }
         return removedElement;
     }
@@ -49,15 +52,12 @@ public class ArrayQueueImpl {
     }
 
     public int size() {
-        if (isEmpty()) {
-            return 0;
-        }
-        return (rear - front) + 1;
+        return isEmpty() ? rear: rear+1 ;
     }
 
     private void resize() {
-        int len = arr.length;
-        int newLen = 2 * len;
+        int len = arr.length;// Original array length
+        int newLen = 2 * len; // Twice the original length
         arr = Arrays.copyOf(arr, newLen);
 
     }
