@@ -23,7 +23,7 @@ public class LinkedListStack {
 			current = current.next;
 		}
 			current.next = newNode;
-            newNode.previous = current;
+           newNode.previous = current;
 		}
 
 	}
@@ -54,16 +54,30 @@ public class LinkedListStack {
 		}
 		return current.value;
 	}
+	// Size of node
+	public int size(){
+		int count = 0;
+		Node next = header.next;
+		while(next != null){
+			++count;
+			next = next.next;
+		}
+		return count;
+	}
 
+	//Check if the node is empty
 	private static boolean isEmpty(){
 		return (header.next == null);
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder("[");
+		StringBuilder sb = new StringBuilder();
+		sb.append("The size of node is = " + size() +"\n");
+		sb.append("[");
 		Node current = header.next;
 		if (isEmpty()) return "No data to print";
+
 		while (current != null) {
 				sb.append(current.value).append(" --->");
 				current = current.next;
@@ -82,7 +96,7 @@ public class LinkedListStack {
 		System.out.println("Data after pushing ...");
 		System.out.println(st);
 		System.out.println("----------------------");
-		System.out.println("Pop: " + st.pop());
+		//System.out.println("Pop: " + st.pop());
 		//System.out.println("Pop: " + st.pop());
 		//System.out.println("Pop: " + st.pop());
 		//System.out.println("Pop: " + st.pop());

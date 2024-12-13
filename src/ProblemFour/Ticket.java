@@ -1,14 +1,8 @@
 package ProblemFour;
 
 public class Ticket {
-    private static int autoId = 0;
     private int id;
     String description;
-
-    Ticket(){
-        this.id = ++autoId;
-        this.description = "Issue with login.";
-    }
 
     @Override
     public String toString() {
@@ -18,8 +12,8 @@ public class Ticket {
                 '}' + "\n";
     }
 
-    Ticket(String s){
-        this.id = ++autoId;
+    Ticket(int id, String s){
+        this.id = id;
         this.description = s;
     }
 

@@ -4,8 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 public class TicketingSystem {
     Queue<Ticket> tickets = new LinkedList<>();
+    private int nextId;
     public void addTicket(String description){
-        Ticket aticket = new Ticket(description);
+        Ticket aticket = new Ticket(++nextId, description);
         tickets.add(aticket);
         System.out.println("Ticket added successfully...");
     }
