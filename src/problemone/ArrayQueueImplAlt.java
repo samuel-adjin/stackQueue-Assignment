@@ -52,7 +52,10 @@ public class ArrayQueueImplAlt {
     }
 
     public int size() {
-        return isEmpty() ? rear: rear+1 ;
+        if (isEmpty()) {
+            return 0;
+        }
+        return (rear - front) + 1;
     }
 
     private void resize() {
